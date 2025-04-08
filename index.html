@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BoxDragon Server - Dashboard</title>
+  <title>BoxDragon - Tiến trình phát triển</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -12,141 +12,99 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1c1f2a, #2e2f4a);
-      min-height: 100vh;
+      background: linear-gradient(135deg, #1a1d2e, #2a2e45);
       color: #fff;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 40px 20px;
     }
 
-    .glass-container {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 30px;
-      padding: 40px;
-      max-width: 950px;
+    .container {
+      max-width: 800px;
       width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 30px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       animation: fadeIn 1.2s ease;
     }
 
     .header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
-    .avatar {
-      width: 140px;
-      height: 140px;
+    .header img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      border: 6px solid #ff92c6;
-      box-shadow: 0 0 30px #ff92c6;
-      animation: pulse 3s infinite, rotate 20s linear infinite;
+      border: 5px solid #ffb3da;
+      box-shadow: 0 0 25px #ff8bcf;
+      animation: pulse 3s infinite, rotate 30s linear infinite;
       object-fit: cover;
     }
 
     .header h1 {
-      font-size: 2.8rem;
-      color: #ffc3e9;
+      font-size: 2.5rem;
       margin-top: 20px;
+      color: #ffc9ee;
     }
 
     .header p {
       color: #ccc;
-      font-size: 1.1rem;
       margin-top: 6px;
     }
 
-    .progress-section {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-      margin-top: 30px;
+    .progress-texts {
+      margin-top: 40px;
+      line-height: 2.2;
+      font-size: 1.1rem;
     }
 
-    .progress-card {
-      background: rgba(255, 255, 255, 0.08);
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05);
-      transition: 0.3s ease;
-      border-left: 6px solid #ff87b9;
-    }
-
-    .progress-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 20px #ffb0e0;
-    }
-
-    .progress-title {
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .progress-title span {
-      font-size: 1.4rem;
-    }
-
-    .progress-bar-container {
-      background: #333;
-      border-radius: 10px;
-      height: 16px;
-      overflow: hidden;
-    }
-
-    .progress-bar {
-      height: 100%;
-      background: linear-gradient(to right, #ff6eb4, #ffc3e9);
-      width: 0%;
-      border-radius: 10px;
-      animation: fillBar 1.5s ease forwards;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 50px;
-      color: #aaa;
-      font-size: 0.9rem;
+    .progress-texts span {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 15px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 0 10px #ffbde9;
     }
 
     .socials {
-      margin-top: 20px;
+      margin-top: 40px;
+      text-align: center;
     }
 
     .socials a {
       text-decoration: none;
-      color: #ffafe1;
+      color: #ffa7d8;
       margin: 0 12px;
-      font-weight: 600;
-      transition: 0.3s ease;
+      font-weight: bold;
+      transition: 0.3s;
     }
 
     .socials a:hover {
-      color: #ffe3f5;
+      color: #fff;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #aaa;
+      font-size: 0.9rem;
     }
 
     audio {
       display: none;
     }
 
-    @keyframes fillBar {
-      0% { width: 0; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     @keyframes pulse {
-      0% { box-shadow: 0 0 20px #ff92c6; }
-      100% { box-shadow: 0 0 35px #ffbde9, 0 0 50px #ff92c6; }
+      0% { box-shadow: 0 0 15px #ff92c6; }
+      100% { box-shadow: 0 0 30px #ffd1f0, 0 0 50px #ff92c6; }
     }
 
     @keyframes rotate {
@@ -154,8 +112,13 @@
       to { transform: rotate(360deg); }
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media (max-width: 600px) {
-      .glass-container {
+      .container {
         padding: 25px;
       }
       .header h1 {
@@ -166,50 +129,19 @@
 </head>
 <body>
 
-  <div class="glass-container">
+  <div class="container">
     <div class="header">
-      <img src="avatar.png" alt="Server Avatar" class="avatar">
+      <img src="avatar.png" alt="Avatar Server">
       <h1>BoxDragon Server</h1>
-      <p>Dashboard tiến trình phát triển</p>
+      <p>Tiến trình phát triển - Cập nhật mới nhất</p>
     </div>
 
-    <div class="progress-section">
-
-      <div class="progress-card">
-        <div class="progress-title"><span>🛠️</span> Xây dựng spawn</div>
-        <div class="progress-bar-container">
-          <div class="progress-bar" style="width: 95%;"></div>
-        </div>
-      </div>
-
-      <div class="progress-card">
-        <div class="progress-title"><span>⚔️</span> Plugin PVP & Combat</div>
-        <div class="progress-bar-container">
-          <div class="progress-bar" style="width: 80%;"></div>
-        </div>
-      </div>
-
-      <div class="progress-card">
-        <div class="progress-title"><span>📦</span> Tối ưu hóa TPS & RAM</div>
-        <div class="progress-bar-container">
-          <div class="progress-bar" style="width: 70%;"></div>
-        </div>
-      </div>
-
-      <div class="progress-card">
-        <div class="progress-title"><span>📜</span> Nhiệm vụ + Hướng dẫn người chơi</div>
-        <div class="progress-bar-container">
-          <div class="progress-bar" style="width: 50%;"></div>
-        </div>
-      </div>
-
-      <div class="progress-card">
-        <div class="progress-title"><span>🚀</span> Chuẩn bị ra mắt</div>
-        <div class="progress-bar-container">
-          <div class="progress-bar" style="width: 30%;"></div>
-        </div>
-      </div>
-
+    <div class="progress-texts">
+      <span>🛠️ Xây dựng khu spawn - <strong>Hoàn thành 95%</strong></span><br>
+      <span>⚔️ Hệ thống PVP & plugin chiến đấu - <strong>Đã hoàn thiện 80%</strong></span><br>
+      <span>📦 Tối ưu hiệu suất TPS / RAM - <strong>Đang triển khai (70%)</strong></span><br>
+      <span>📜 Hệ thống nhiệm vụ và hướng dẫn người chơi - <strong>50%</strong></span><br>
+      <span>🚀 Chuẩn bị ra mắt chính thức - <strong>Chưa bắt đầu (30%)</strong></span>
     </div>
 
     <div class="socials">
@@ -219,7 +151,7 @@
     </div>
 
     <div class="footer">
-      &copy; 2025 BoxDragon. Cập nhật lần cuối: Tháng 4, 2025.
+      &copy; 2025 BoxDragon Server | Cập nhật lần cuối: 08/04/2025
     </div>
   </div>
 
