@@ -1,243 +1,47 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MineCopy Server - Trang phát triển</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1a1d2e, #2a2e45);
-      color: #fff;
-      min-height: 100vh;
-      padding: 50px 20px;
-      line-height: 1.8;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 30px;
-      padding: 50px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 5px solid #ffb3da;
-      box-shadow: 0 0 25px #ff8bcf;
-      animation: pulse 3s infinite, rotate 25s linear infinite;
-      object-fit: cover;
-    }
-
-    .header h1 {
-      font-size: 2.8rem;
-      margin-top: 20px;
-      color: #ffc9ee;
-    }
-
-    .section {
-      margin-top: 50px;
-    }
-
-    .section h2 {
-      font-size: 1.8rem;
-      color: #ffafe1;
-      margin-bottom: 15px;
-      border-left: 4px solid #ffafe1;
-      padding-left: 15px;
-    }
-
-    .progress-texts span {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 10px 15px;
-      border-radius: 12px;
-      margin-bottom: 10px;
-      box-shadow: 0 0 10px #ffbde9;
-    }
-
-    ul {
-      padding-left: 20px;
-      margin-top: 10px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .log {
-      font-family: monospace;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 15px 20px;
-      border-radius: 12px;
-      margin-bottom: 12px;
-    }
-
-    .team {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .member {
-      background: rgba(255, 255, 255, 0.07);
-      border-radius: 12px;
-      padding: 15px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(255,255,255,0.05);
-    }
-
-    .member h4 {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #ffdbf0;
-    }
-
-    .socials {
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    .socials a {
-      text-decoration: none;
-      color: #ffa7d8;
-      margin: 0 12px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .socials a:hover {
-      color: #fff;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-
-    audio {
-      display: none;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 15px #ff92c6; }
-      100% { box-shadow: 0 0 30px #ffd1f0, 0 0 50px #ff92c6; }
-    }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    @media (max-width: 600px) {
-      .container { padding: 30px; }
-      .header h1 { font-size: 2rem; }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="container">
-    <div class="header">
-      <img src="blob:https://www.messenger.com/8949c1db-759a-474b-b816-5f5180d253b0" alt="Avatar Server">
-      <h1>MineCopy Server</h1>
-      <p>Tiến trình phát triển - Giao diện chính thức</p>
-    </div>
-
-    <div class="section">
-      <h2>🎮 Giới thiệu tổng quan</h2>
-      <p>MineCopy là một server Minecraft sáng tạo và cuốn hút, nơi người chơi có thể tham gia PVP, làm nhiệm vụ, sinh tồn cùng cộng đồng, và khám phá nhiều hệ thống độc quyền được tối ưu hóa mượt mà.</p>
-    </div>
-
-    <div class="section">
-      <h2>🧭 Mục tiêu & Định hướng</h2>
-      <ul>
-        <li>🌍 Xây dựng một cộng đồng Minecraft thân thiện và gắn bó</li>
-        <li>⚔️ Tối ưu hóa trải nghiệm chiến đấu & plugin độc quyền</li>
-        <li>📈 Cập nhật nội dung định kỳ với phản hồi từ người chơi</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>📌 Tiến trình phát triển</h2>
-      <div class="progress-texts">
-        <span>🛠️ Xây dựng khu spawn - <strong>Hoàn thành 95%</strong></span><br>
-        <span>⚔️ Hệ thống PVP & plugin chiến đấu - <strong>Đã hoàn thiện 80%</strong></span><br>
-        <span>📦 Tối ưu TPS / RAM - <strong>Đang triển khai (70%)</strong></span><br>
-        <span>📜 Hướng dẫn + nhiệm vụ cơ bản - <strong>50%</strong></span><br>
-        <span>🚀 Chuẩn bị ra mắt chính thức - <strong>Chưa bắt đầu (30%)</strong></span>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>🔧 Tính năng nổi bật</h2>
-      <ul>
-        <li>✅ PvP tốc độ cao với plugin cân bằng</li>
-        <li>✅ Hệ thống class & kỹ năng riêng</li>
-        <li>✅ Giao diện hướng dẫn người chơi mới</li>
-        <li>✅ Sinh tồn - nhiệm vụ - giao dịch - nâng cấp</li>
-        <li>✅ Bảo mật chống cheat tiên tiến</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>📝 Nhật ký cập nhật</h2>
-      <div class="log">[08/04/2025] - Thêm hướng dẫn nhiệm vụ cơ bản</div>
-      <div class="log">[06/04/2025] - Hoàn thiện hệ thống class + spawn</div>
-      <div class="log">[04/04/2025] - Tối ưu hóa TPS đạt 19.99 stable</div>
-      <div class="log">[01/04/2025] - Bắt đầu giai đoạn test nội bộ</div>
-    </div>
-
-    <div class="section">
-      <h2>👥 Thành viên phát triển</h2>
-      <div class="team">
-        <div class="member">
-          <img src="https://images-ext-1.discordapp.net/external/bVn7NlVqqzTqpYzW5qA1yGhLkggnRW092kz-V1zbtXE/%3Fsize%3D4096%26ignore%3Dtrue%29./https/cdn.discordapp.com/avatars/1330168129397198869/99635edb1e1f8b5d212901ceed36b794.png?format=webp&quality=lossless" width="60" style="border-radius: 50%;">
-          <h4>KinooVN</h4>
-          <p>Chủ server / Dev chính</p>
-        </div>
-        <div class="member">
-          <img src="https://placehold.co/60x60" width="60" style="border-radius: 50%;">
-          <h4>KinooVN</h4>
-          <p>Trí tuệ hỗ trợ kỹ thuật</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>📞 Liên hệ & Kết nối</h2>
-      <p>Tham gia cộng đồng để nhận thông báo, hỗ trợ và kết bạn cùng game thủ khác:</p>
-      <div class="socials">
-        <a href="https://discord.gg/yourlink" target="_blank">Discord</a>
-        <a href="https://github.com/yourserver" target="_blank">GitHub</a>
-        <a href="https://boxdragon.ddns.net" target="_blank">Website</a>
-      </div>
-    </div>
-
-    <div class="footer">
-      &copy; 2025 MineCopy | Luôn Chào Đón Bạn
-    </div>
-  </div>
-
-  <audio autoplay loop>
-    <source src="lofi.mp3" type="audio/mpeg">
-  </audio>
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="https://guns.lol/_next/static/css/a98173617ef88ac7.css" data-precedence="next"/><link rel="stylesheet" href="https://guns.lol/_next/static/css/13d5dac35854fc75.css" data-precedence="next"/><link rel="stylesheet" href="https://guns.lol/_next/static/css/1a09872105716ccf.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="https://guns.lol/_next/static/chunks/webpack-b299426bcdae89d8.js"/><script src="https://guns.lol/_next/static/chunks/4bd1b696-5cc00fdd89cac993.js" async=""></script><script src="https://guns.lol/_next/static/chunks/1684-ccd0ab83cbafdc8f.js" async=""></script><script src="https://guns.lol/_next/static/chunks/main-app-c95b87e4dbcdea77.js" async=""></script><script src="https://guns.lol/_next/static/chunks/app/layout-75c5298ff535ce4d.js" async=""></script><script src="https://guns.lol/_next/static/chunks/6874-1335ddc9318d7318.js" async=""></script><script src="https://guns.lol/_next/static/chunks/app/not-found-b4ce4f800b3e7270.js" async=""></script><script src="https://guns.lol/_next/static/chunks/5322-a31cc2ef467c25bd.js" async=""></script><script src="https://guns.lol/_next/static/chunks/8306-ea0440b802e2d283.js" async=""></script><script src="https://guns.lol/_next/static/chunks/540-dc9b94456c69f193.js" async=""></script><script src="https://guns.lol/_next/static/chunks/8317-551082d7963a590d.js" async=""></script><script src="https://guns.lol/_next/static/chunks/2011-1bda978dcb51bc45.js" async=""></script><script src="https://guns.lol/_next/static/chunks/6990-20968a621a3be1f5.js" async=""></script><script src="https://guns.lol/_next/static/chunks/9677-fb2b81040d185490.js" async=""></script><script src="https://guns.lol/_next/static/chunks/4923-5305854283867663.js" async=""></script><script src="https://guns.lol/_next/static/chunks/6696-45c4baeb455b6a2c.js" async=""></script><script src="https://guns.lol/_next/static/chunks/8011-a348fbeef4351322.js" async=""></script><script src="https://guns.lol/_next/static/chunks/1090-6aba41ef17cedce2.js" async=""></script><script src="https://guns.lol/_next/static/chunks/app/%5Busername%5D/page-b6665e4d9c218fe9.js" async=""></script><link rel="preload" href="https://sa.guns.lol/latest.js" as="script"/><link rel="preload" href="https://assets.guns.lol/cursor-effects.js" as="script"/><link rel="preload" href="https://challenges.cloudflare.com/turnstile/v0/api.js" as="script"/><link rel="apple-touch-icon" sizes="180x180" href="https://assets.guns.lol/favicon/apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://assets.guns.lol/favicon/favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://assets.guns.lol/favicon/favicon-16x16.png"/><link rel="manifest" href="https://assets.guns.lol/favicon/site.webmanifest"/><meta name="theme-color" content="#ffffff"/><link href="https://api.fontshare.com/v2/css?f[]=satoshi@1&amp;f[]=array@400&amp;display=swap" rel="stylesheet"/><title>@shark_yon | guns.lol</title><meta name="description" content="Create feature-rich, customizable and modern link-in-bio pages with guns.lol."/><meta name="author" content="@shark_yon | guns.lol"/><meta property="og:title" content="@shark_yon | guns.lol"/><meta property="og:description" content="Create feature-rich, customizable and modern link-in-bio pages with guns.lol."/><meta property="og:image" content="https://og.guns.lol/api/og?username=shark_yon&amp;t=1744351391274"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="@shark_yon | guns.lol"/><meta name="twitter:description" content="Create feature-rich, customizable and modern link-in-bio pages with guns.lol."/><meta name="twitter:image" content="https://og.guns.lol/api/og?username=shark_yon&amp;t=1744351391274"/><script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script><script src="https://guns.lol/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><div class="t51SNY_244378cdd5913f278c3a" style="background-image:url(https://r2.guns.lol/d788792b-00f9-4887-a171-a61b8c7465f9.mp4)"></div><div class="ibnslU_4ac5c10f247eb261df8a"><div class="p51e3N_dbdc0f63fcf9ce25e8c2" style="font-weight:700;font-size:30px">click to enter...</div></div><div aria-hidden="true"><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div><div class="d5YcV3_af15aed43b3a13eae1d0"><div class="z1xWbl_4276841c8cf4657159c8">❅</div></div></div><script>(self.__next_s=self.__next_s||[]).push(["https://assets.guns.lol/cursor-effects.js",{"id":"_cursor"}])</script><style>
+                    * {
+                      cursor: url(https://r2.guns.lol/487a9e1b-679b-40dc-ae66-972125aa154b.png) 16 16, auto !important;
+                    }
+                    </style><style>
+                ::-moz-selection {
+                    background: #ffffff;
+                    color: #ffffff;
+                }
+                ::selection {
+                    background: #ffffff;
+                    color: #ffffff;
+                }
+                </style><div class="oDU9yZ_e606f195670897bc74a6" style="background-color:#ffffff"></div><div style="--presenceUsernameColor:#ffffff;--presenceStatusColor:rgba(255, 255, 255, 0.7);--presenceContainerBackground:rgba(255, 255, 255, 0.07);--presenceContainerBorder:2px solid rgba(255, 255, 255, 0.05);--discordServerMembers:rgba(255, 255, 255, 0.6);--secondTabBackground:rgba(255, 255, 255, 0.07);--secondTabBorder:2px solid rgba(255, 255, 255, 0.05);--discordMissingIcon:rgba(255, 255, 255, 0.25);--modernLayoutSeperator:rgba(255, 255, 255, 0.12);--modernLayoutSeperatorBorder:rgba(255, 255, 255, 0.12);--discordAvatarBorder:2px solid rgba(255, 255, 255, 0.15);--badgeContainerBackground:rgba(255, 255, 255, 0.08);--badgeContainerBorder:2px solid rgba(255, 255, 255, 0.04);--userBadge:20.5px;--textColor:#ffffff;--textColorDarker:rgba(255, 255, 255, 0.5);--iconColor:#ffffff;--backgroundColor:#ffffff;--joinStatus:rgba(255, 255, 255, 0.65);--audioPlayerBar:rgba(255, 255, 255, 0.35);--avatarBorder:2px solid rgba(255, 255, 255, 0.4);--containerColor:rgba(255, 255, 255, 0);--containerBlur:0px;--containerGradient:linear-gradient(25deg, rgba(12, 12, 12, 0), rgba(0, 0, 0, 0));--containerRadius:20px;--containerWidth:40rem;--containerPadding:35px 15px;--volumeBackgroundcolor:rgba(255, 255, 255, 0.2);--volumeBorder:2px solid rgba(255, 255, 255, 0.05);--colorUsernameGlow:0px 0px 16.5px #ffffff;--usernameEffects:url(https://assets.guns.lol/sparkle_white.gif);--buttonBackground:rgba(255, 255, 255, 0.22);--buttonBorder:2px solid rgba(255, 255, 255, 0.12);--buttonRadius:12px;--buttonAlign:center;--buttonBackgroundHover:rgba(255, 255, 255, 0.32);--buttonBorderHover:2px solid rgba(255, 255, 255, 0.25);--buttonUrlColor:rgba(255, 255, 255, 0.65);--profileViewsContainerBorder:2px solid rgba(255, 255, 255, 0);--templatePreviewContainerBackground:rgba(255, 255, 255, 0.4);--platformTextColor:rgba(255, 255, 255, 0.4);--secondTabWidgetDescription:rgba(255, 255, 255, 0.6);--audioIconBackground:rgba(255, 255, 255, 0.2);--progessBarFull:rgba(255, 255, 255, 0.3);--progessBarPlaying:#ffffff;--controlButtonsOther:rgba(255, 255, 255, 0.5);--controlButtonPlaying:#ffffff;--controlTextColor:rgba(255, 255, 255, 0.7);--modernLayoutBottomLeftDivider:rgba(255, 255, 255, 0.14);--sleekLayoutTopRightDivider:rgba(255, 255, 255, 0.14)"><div class="r1t3wJ_8629220724424aabca4a"><span><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 48 48"><defs><mask id="ipTVolumeNotice0"><g fill="none" stroke="#fff" stroke-width="4"><path fill="#555" stroke-linejoin="round" d="M24 6v36c-7 0-12.201-9.16-12.201-9.16H6a2 2 0 0 1-2-2V17.01a2 2 0 0 1 2-2h5.799S17 6 24 6Z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M32 15a11.91 11.91 0 0 1 1.684 1.859A12.07 12.07 0 0 1 36 24c0 2.654-.846 5.107-2.278 7.09A11.936 11.936 0 0 1 32 33"></path><path stroke-linecap="round" d="M34.236 41.186C40.084 37.696 44 31.305 44 24c0-7.192-3.796-13.496-9.493-17.02"></path></g></mask></defs><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#ipTVolumeNotice0)"></path></svg></span><div class="dyysU1_c071c3527619a0c9a76b"><style>
+                                        .mantine-Slider-label {
+                                        display: none
+                                        }
+                                        .mantine-Slider-track::before {
+                                                background: var(--textColorDarker);
+                                            }
+                                        .mantine-Slider-bar {
+                                            background-color: var(--textColor)
+                                        }
+                                        .mantine-Slider-thumb {
+                                            border: 0.15rem solid var(--containerColor);
+                                            box-shadow: var(--textColorDarker) 0px 5px 25px 0px;
+                                        </style><div class="iRcWs9_65441dc180f8713642f9"><h1 class="hFlwlY_31b537cf41e15a13c496"></h1><div class="odLzLm_ad32a816426011a46807"><div class="mantine-Slider-root mantine-16d7kiv" tabindex="-1"><div class="mantine-12p37cx mantine-Slider-trackContainer"><div class="mantine-mu412o mantine-Slider-track"><div class="mantine-Slider-bar mantine-1pac8x3"></div><div class="mantine-Slider-thumb mantine-4bxu6y" style="left:100%" tabindex="0" role="slider" aria-label="" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100"></div></div></div><div class="mantine-s2z3jd mantine-Slider-marksContainer"></div><input type="hidden" value="100"/></div></div></div></div></div><div class="vylc2c_8d25fbd2ec018e7f3333"><div class="rNwWDc_089e78ae7261139e29df"><div class="un29L1_35f2a4c5b48e5f22cb72" style="position:fixed"><div class="rZZuU0_02af604a2f0bd5f52a08 q3wSUc_85176f7ad5dd05cd2a8a"><div class="etXYXz_d0dc3a8bbeb8294cbc40"><div></div><div class="wFbLN3_b7ae81993acc636a36eb false"><h1 class="x0uz5m_f8ef53b912061d92eab6 false" style="font-weight:600;font-size:39.5px">shark_yon</h1></div><div class="i5VcNY_b4c509d547ebc284a4d0 false"><div class="sYypYu_87e32c7ed391a936e81d"><div class="zbZVt2_f868b47b56a17c140676 k0wFzn_41d205e0e5755e844659"><style>
+                                    .k0wFzn_41d205e0e5755e844659 svg {
+                                        color: #ffffff!important;
+                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
+                                    }</style><a target="_blank" href="https://tiktok.com/@crisp_toasts"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="3.2 2 17.43 19.99"><path fill="currentColor" d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74a2.89 2.89 0 0 1 2.31-4.64a2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg></a></div><div class="zbZVt2_f868b47b56a17c140676 nNN13c_c3bc08f8112281a4ee5d"><style>
+                                    .nNN13c_c3bc08f8112281a4ee5d svg {
+                                        color: #ffffff!important;
+                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
+                                    }</style><a target="_blank" href="https://facebook.com/Yonseoul2005"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="2 2 20 19.95"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95"></path></svg></a></div><div class="zbZVt2_f868b47b56a17c140676 penw21_6799432dd94e0fce2df8"><style>
+                                    .penw21_6799432dd94e0fce2df8 svg {
+                                        color: #ffffff!important;
+                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
+                                    }</style><a target="_blank" href="https://roblox.com/users/3082621957/profile"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0.16 0 23.68 24"><path fill="currentColor" d="M5.164 0L.16 18.928L18.836 24L23.84 5.072Zm8.747 15.354l-5.219-1.417l1.399-5.29l5.22 1.418l-1.4 5.29z"></path></svg></a></div><div class="zbZVt2_f868b47b56a17c140676 penw21_6799432dd94e0fce2df8"><style>
+                                    .penw21_6799432dd94e0fce2df8 svg {
+                                        color: #ffffff!important;
+                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
+                                    }</style><a target="_blank" href="https://roblox.com/users/566661371/profile"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0.16 0 23.68 24"><path fill="currentColor" d="M5.164 0L.16 18.928L18.836 24L23.84 5.072Zm8.747 15.354l-5.219-1.417l1.399-5.29l5.22 1.418l-1.4 5.29z"></path></svg></a></div><div class="zbZVt2_f868b47b56a17c140676 wYwcRU_8cadb2f2abb9edb616fd"><style>
+                                    .wYwcRU_8cadb2f2abb9edb616fd svg {
+                                        color: #ffffff!important;
+                                        filter: drop-shadow(#ffffff 1px 0 7px)!important;
+                                    }</style><span style="display:flex"><span style="display:flex"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="1.96 4.26 20.03 15.53"><path fill="currentColor" d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1a14.66 14.66 0 0 0-4.58 0a10.14 10.14 0 0 0-.53-1.1a16 16 0 0 0-4.13 1.3a17.33 17.33 0 0 0-3 11.59a16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83a3.39 3.39 0 0 0 .42-.33a11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84a12.41 12.41 0 0 0 1.08 1.78a16.44 16.44 0 0 0 5.06-2.59a17.22 17.22 0 0 0-3-11.59a16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.93 1.93 0 0 1 1.8 2a1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2a1.93 1.93 0 0 1 1.8-2a1.92 1.92 0 0 1 1.8 2a1.92 1.92 0 0 1-1.8 2z"></path></svg></span></span></div></div></div></div><script>(self.__next_s=self.__next_s||[]).push([0,{"children":"\n        const workerScript =         \n            import init, { GunsSolver } from 'https://assets.guns.lol/pkg/_gunslolpow.js';\n            self.onmessage = async function (event) {               \n                const { ps, d, c, _n, org_ts } = event.data;\n                await init();\n                const _get_s = new GunsSolver(ps, c, parseInt(d), false, _n);\n                const ts = Math.floor(Date.now() / 1000);\n                const _tsoff = ts - Number(org_ts);\n                const tsp = ts - _tsoff;\n                const _sol = await _get_s.solve_pow();    \n                if (_sol !== null) {\n                    self.postMessage({ sol: _sol[0], ps, tsp, _n, c });\n                }\n            };\n        ;\n\n        const blob = new Blob([workerScript], { type: \"application/javascript\" });\n        const worker = new Worker(URL.createObjectURL(blob), { type: \"module\" });\n\n        worker.postMessage({\n            ps: 'fafcf10e5e4471d5646c22f1474acfec53692e0dfd9222ab2a183b1eaaf',\n            d: '5',\n            c: '90d07e60a398158094f7be722dbbc29355aff29cd0f338c8ec7cde095981c0e3',\n            _n: 'bhZKqDLdNnbZK1yb',\n            org_ts: '1744351391'\n        });\n\n        worker.onmessage = async function (event) {\n            const { sol, ps, tsp, _n, c } = event.data;\n            if (sol !== undefined) {\n                await getResult(sol);\n            }\n        };\n    ","id":"_code"}])</script><div class="cf-turnstile" style="display:none" data-sitekey="0x4AAAAAAAgU7T2niLQD-TLm" data-callback="getToken"></div><div class="bNWa0W_599d5ef2ae281840bef2 false" style="bottom:12px;left:15px"><span style="font-weight:550;font-size:14px"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"></path></svg> <!-- -->50</span></div></div></div></div></div></div><!--$--><!--/$--><!--$--><!--/$--><script src="https://guns.lol/_next/static/chunks/webpack-b299426bcdae89d8.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0])</script><script>self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[69243,[\"7177\",\"static/chunks/app/layout-75c5298ff535ce4d.js\"],\"\"]\n3:I[87555,[],\"\"]\n4:I[31295,[],\"\"]\n5:I[6874,[\"6874\",\"static/chunks/6874-1335ddc9318d7318.js\",\"4345\",\"static/chunks/app/not-found-b4ce4f800b3e7270.js\"],\"\"]\n7:I[59665,[],\"MetadataBoundary\"]\n9:I[59665,[],\"OutletBoundary\"]\nc:I[74911,[],\"AsyncMetadataOutlet\"]\ne:I[59665,[],\"ViewportBoundary\"]\n10:I[26614,[],\"\"]\n11:\"$Sreact.suspense\"\n12:I[74911,[],\"AsyncMetadata\"]\n:HL[\"/_next/static/css/a98173617ef88ac7.css\",\"style\"]\n:HL[\"/_next/static/css/13d5dac35854fc75.css\",\"style\"]\n:HL[\"/_next/static/css/1a09872105716ccf.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"0:{\"P\":null,\"b\"😕"_M5seGFv-7G8q4cwxDJaJ\",\"p\"😕"\",\"c\":[\"\",\"shark_yon\"],\"i\":false,\"f\":[[[\"\",{\"children\":[[\"username\",\"shark_yon\",\"d\"],{\"children\":[\"__PAGE__\",{}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\"😕"stylesheet\",\"href\"😕"/_next/static/css/a98173617ef88ac7.css\",\"precedence\"😕"next\",\"crossOrigin\"😕"$undefined\",\"nonce\"😕"$undefined\"}]],[\"$\",\"html\",null,{\"lang\"😕"en\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"link\",null,{\"href\"😕"https://api.fontshare.com/v2/css?f[]=satoshi@1\u0026f[]=array@400\u0026display=swap\",\"rel\"😕"stylesheet\"}],[\"$\",\"$L2\",null,{\"src\"😕"https://sa.guns.lol/latest.js\",\"id\"😕"_sa\"}],[\"$\",\"link\",null,{\"rel\"😕"apple-touch-icon\",\"sizes\"😕"180x180\",\"href\"😕"https://assets.guns.lol/favicon/apple-touch-icon.png\"}],[\"$\",\"link\",null,{\"rel\"😕"icon\",\"type\"😕"image/png\",\"sizes\"😕"32x32\",\"href\"😕"https://assets.guns.lol/favicon/favicon-32x32.png\"}],[\"$\",\"link\",null,{\"rel\"😕"icon\",\"type\"😕"image/png\",\"sizes\"😕"16x16\",\"href\"😕"https://assets.guns.lol/favicon/favicon-16x16.png\"}],[\"$\",\"link\",null,{\"rel\"😕"manifest\",\"href\"😕"https://assets.guns.lol/favicon/site.webmanifest\"}]]}],[\"$\",\"body\",null,{\"children\":[\"$\",\"$L3\",null,{\"parallelRouterKey\"😕"child
